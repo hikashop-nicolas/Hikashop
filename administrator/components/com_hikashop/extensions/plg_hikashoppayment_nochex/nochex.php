@@ -130,6 +130,8 @@ class plgHikashoppaymentNochex extends hikashopPaymentPlugin
 			"delivery_postcode" => $delivery_postcode,
 			"customer_phone_number" => $customer_phone_number,
 			"email_address" => $email_address,
+			"hide_billing_details" => $hideMode,
+			"test_transaction" => $testMode,
 			"test_success_url" => $success_url,
 			"success_url" => $success_url,
 			"cancel_url" => $cancel_url,

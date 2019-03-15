@@ -13,6 +13,12 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 =====================
 
+= 1.2 =
+
+  - Minor bug fix 
+  
+    - test mode and hide billing details were not working as expected when enabled. 
+
 = 1.1 =
 
   - Module Feature added

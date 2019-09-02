@@ -92,9 +92,10 @@ class plgHikashoppaymentNochex extends hikashopPaymentPlugin
 		$desc = "";
 		$xmlCollection = "<items>";
 		
-		foreach($order->cart->products as $product) {		
-			$desc .= "" . $product->order_product_name . " - " . number_format($product->order_product_price, 2, '.', '' ) ." X ". $product->order_product_quantity;
-			$xmlCollection .= "<item><id></id><name>" . $product->order_product_name . "</name><description>" . $product->order_product_name . "</description><quantity>". $product->order_product_quantity ."</quantity><price>" . number_format($product->order_product_price, 2, '.', '' ) ."</price></item>";		
+		foreach($order->cart->products as $product) {
+			$product_name = filter_var($product->order_product_name, FILTER_SANITIZE_STRING, FILTER_FLAG_STRIP_HIGH); 
+			$desc .= "" . $product_name . " - " . number_format($product->order_product_price, 2, '.', '' ) ." X ". $product->order_product_quantity;
+			$xmlCollection .= "<item><id></id><name>" . $product_name . "</name><description>" . $product_name . "</description><quantity>". $product->order_product_quantity ."</quantity><price>" . number_format($product->order_product_price, 2, '.', '' ) ."</price></item>";		
 		}
 		
 		$xmlCollection .= "</items>";
@@ -163,7 +164,7 @@ class plgHikashoppaymentNochex extends hikashopPaymentPlugin
 	curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt ($ch, CURLOPT_POST, true);
 	curl_setopt ($ch, CURLOPT_POSTFIELDS, $postvars); // Set POST fields 
-	curl_setopt ($ch, CURLOPT_SSLVERSION, 6); // set openSSL version variable to CURL_SSLVERSION_TLSv1
+	curl_setopt ($ch, CURLOPT_SSLVERSION, 6); // set openSSL version variable to CURL_SSLVERSION_TLSv12
 	$output = curl_exec($ch); // Post back
 	curl_close($ch);
 
@@ -197,11 +198,7 @@ class plgHikashoppaymentNochex extends hikashopPaymentPlugin
 	 	$history = new stdClass();
 		$history->notified = 0;
 		$history->data = 'Nochex Transaction ID: '.$_POST['transaction_id'] . ', ' . $msg;
-	 	 
-		 
-		 
-		 
-		 
+	 	
 	 	$this->modifyOrder($_POST["order_id"], "Confirmed", $history, $mailer);
 	
 	}else{

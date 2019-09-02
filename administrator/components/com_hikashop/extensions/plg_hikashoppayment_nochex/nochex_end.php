@@ -4,7 +4,7 @@
 
  * @package	HikaShop for Joomla!
 
- * @version	3.5.1
+ * @version	4.2.1
 
  * @author	hikashop.com
 

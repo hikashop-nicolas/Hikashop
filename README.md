@@ -13,6 +13,10 @@ Visit our Knowledgebase for support: https://support.nochex.com/
 Changelog
 =====================
 
+= 1.3 =
+
+  - Minor Update to the product name and product description.
+
 = 1.2 =
 
   - Minor bug fix 

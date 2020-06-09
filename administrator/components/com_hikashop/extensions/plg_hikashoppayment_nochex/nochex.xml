@@ -9,6 +9,7 @@
 	<description>This plugin enables your customers to pay by Nochex</description>
 	<files>
 		<filename plugin="nochex">nochex.php</filename>
+		<filename>nochex_end.php</filename>
 	</files>
 	<params addpath="/components/com_hikashop/params">
 		<param name="pluginoptions" type="pluginoptions" default="plugin" label="hikashop" description="HikaShop options" />
